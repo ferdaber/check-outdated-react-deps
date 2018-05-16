@@ -1,2 +1,2 @@
 #! /usr/bin/env node
-require('./index')()
+require('./index')(process.argv[2])

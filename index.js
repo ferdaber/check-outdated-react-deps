@@ -2,27 +2,26 @@ const fs = require('fs')
 const path = require('path')
 const semver = require('semver')
 
-function getOutdatedPackages() {
-    const packagesJson = require(process.cwd() + '/package.json')
+function getOutdatedPackages(version = '16.3.0') {
+    const packagesJson = require(path.resolve(process.cwd(), 'package.json'))
     const dependencies = packagesJson.dependencies
-    const version = process.argv[2] || '16.3.0'
 
     Object.keys(dependencies).forEach(pkg => {
         try {
-            const packagePath = require.resolve(pkg)
-            parsePackageJson(packagePath, pkg)
+            const packagePath = require.resolve(pkg, { paths: [process.cwd()] })
+            parsePackageJson(packagePath, pkg, version)
         } catch (e) {
             return
         }
     })
 }
 
-function parsePackageJson(file, pkgName) {
+function parsePackageJson(file, pkgName, version) {
     const dir = path.dirname(file)
     const packageJsonPath = path.resolve(dir, 'package.json')
     fs.exists(packageJsonPath, exists => {
         if (!exists) {
-            return parsePackageJson(dir, pkgName)
+            return parsePackageJson(dir, pkgName, version)
         }
         const packageJson = require(packageJsonPath)
         const reactDependencyVersionRange =
