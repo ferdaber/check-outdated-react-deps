@@ -1,0 +1,26 @@
+{
+    "name": "check-outdated-react-deps",
+    "version": "1.0.0",
+    "description": "Checks your dependencies for outdated React versions",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ferdaber/check-outdated-react-deps.git"
+    },
+    "keywords": [
+        "react"
+    ],
+    "bin": "cli.js",
+    "author": "Ferdy Budhidharma",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ferdaber/check-outdated-react-deps/issues"
+    },
+    "homepage": "https://github.com/ferdaber/check-outdated-react-deps#readme",
+    "dependencies": {
+        "semver": "^5.5.0"
+    }
+}
