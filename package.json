@@ -10,9 +10,10 @@
         "type": "git",
         "url": "git+https://github.com/ferdaber/check-outdated-react-deps.git"
     },
-    "keywords": [
-        "react"
-    ],
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org"
+    },
+    "keywords": ["react"],
     "bin": "cli.js",
     "author": "Ferdy Budhidharma",
     "license": "ISC",
