@@ -3,7 +3,7 @@ const path = require('path')
 const semver = require('semver')
 
 function getOutdatedPackages() {
-    const packagesJson = require(__dirname + '/package.json')
+    const packagesJson = require(process.cwd() + '/package.json')
     const dependencies = packagesJson.dependencies
     const version = process.argv[2] || '16.3.0'
 
